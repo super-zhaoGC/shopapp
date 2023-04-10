@@ -31,6 +31,7 @@ export default {
     Like,
     Floor,
   },
+
   created() {},
   mounted() {},
   methods: {},

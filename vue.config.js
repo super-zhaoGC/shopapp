@@ -14,5 +14,13 @@ module.exports = defineConfig({
   //设置路径别名
   chainWebpack: (config) => {
     config.resolve.alias.set('assets', resolve('src/assets')).set('components', resolve('src/components')).set('network', resolve('src/network')).set('views', resolve('src/views'))
-  }
+  },
+  //设置服务器代理
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://gmall-h5-api.atguigu.cn',
+      }
+    },
+  },
 })
