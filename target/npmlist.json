@@ -1,0 +1,1 @@
+{"version":"0.1.0","name":"shopapp","dependencies":{"core-js":{"version":"3.30.0"},"less-loader":{"version":"11.1.0"},"less":{"version":"4.1.3"},"vue-router":{"version":"3.6.5"},"vue":{"version":"2.7.14"},"vuex":{"version":"3.6.2"}}}

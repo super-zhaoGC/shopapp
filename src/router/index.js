@@ -4,6 +4,28 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
+//重写VueRouter的push和replace方法
+let originPush = VueRouter.prototype.push
+let originReplace = VueRouter.prototype.replace
+console.log(VueRouter.prototype);
+
+VueRouter.prototype.push = function (location, resolve, reject) {
+  // console.log(this);
+  if (resolve && reject) {
+    originPush.call(this, location, resolve, reject)
+  } else {
+    originPush.call(this, location, () => {}, () => {})
+  }
+}
+
+VueRouter.prototype.replace = function (location, resolve, reject) {
+  if (resolve && reject) {
+    originReplace.call(this, location, resolve, reject)
+  } else {
+    originReplace.call(this, location, () => {}, () => {})
+  }
+}
+
 const Home = () => import("views/home/Home.vue")
 const Login = () => import("views/login/Login.vue")
 const Register = () => import("views/register/Register.vue")
